@@ -1,0 +1,7 @@
+.checkBox {
+    width: max-content !important;    
+  }
+
+.checkBox:hover {
+    color: orange;
+}  
