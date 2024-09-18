@@ -47,8 +47,6 @@ food_truck_rows =
     ] =
       row
 
-    IO.puts("approved_at is #{approved_at}")
-
     %{
       name: name,
       category: category,
@@ -77,12 +75,9 @@ food_truck_categories =
     end
   end
 
-IO.puts("food_truck_categories is #{inspect(food_truck_categories)}")
-
 for row <- food_truck_rows do
   case FoodTruckSearcher.FoodTrucks.find_by_name(row.name) do
     {:ok, truck} ->
-      IO.puts("already foudn truck #{inspect(truck)}")
       :ok
 
     {:error, :not_found} ->

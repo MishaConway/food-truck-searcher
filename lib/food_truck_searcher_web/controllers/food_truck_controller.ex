@@ -8,7 +8,6 @@ defmodule FoodTruckSearcherWeb.FoodTruckController do
            SearchParams.changeset(%SearchParams{}, normalized_params),
          %SearchParams{} = search_params <- Ecto.Changeset.apply_changes(changeset),
          {:ok, food_trucks} <- FoodTruckSearcher.FoodTrucks.search(search_params) do
-      IO.puts "food trucks is #{inspect food_trucks}"
       render(conn, "index.json", food_trucks: food_trucks)
     end
     # todo: add error fallback handler
